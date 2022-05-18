@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Login with MetaMask Demo </title>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+
+</head>
+
+<body>
+    
+    <button onclick="login()"> Login with MetaMask </button> <!-- Button to authenticate users -->   
+   
+    <script>
+
+          Moralis.initialize("APPLICATION_ID"); // Application ID will populate from user into server once authenticated
+          Moralis.serverURL = "SERVER_URL"; // Application will request for user to authenticate onto the server's URL
+      
+          async function login(){
+              console.log("login clicked");
+              var user = await Moralis.Web3.authenticate();
+              if(user){
+                  console.log(user);
+                  
+                  /* user.set("nickname","VITALIK");
+                  user.set("fav_color","blue");
+                  user.save();*/
+              }
+          }
+    </script>
+
+ </body>
+  
+ </html>
+\
